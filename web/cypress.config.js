@@ -7,3 +7,6 @@ module.exports = defineConfig({
     },
   },
 });
+
+//rodar com npm run dev
+// 
