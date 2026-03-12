@@ -1,12 +1,7 @@
 describe('Login', () => {  
   it('Deve logar com sucesso', () => {
-    cy.viewport(1920, 1080)
-    cy.visit('http://localhost:3000')
-
-    cy.get('#email').type('papito@webdojo.com')
-    cy.get('#password').type('katana123')
-
-    cy.contains('button', 'Entrar').click()
+    cy.start()
+    cy.submitLogin('papito@webdojo.com', 'katana123')
 
     cy.get('[data-cy="user-name"]')
     .should('be.visible')
@@ -23,15 +18,19 @@ describe('Login', () => {
   It: Define caso de teste
   Context: */
 it('Não deve logar com senha inválida', () => {
-    cy.viewport(1920, 1080)
-    cy.visit('http://localhost:3000')
+    cy.start()
+    cy.submitLogin('papito@webdojo.com', 'katana321')
+   
+    cy.contains('Acesso negado! Tente novamente.').should('be.visible') 
+  })
 
-    cy.get('#email').type('papito@webdojo.com')
-    cy.get('#password').type('katana321')
-
-    cy.contains('button', 'Entrar').click()
+  it('Não deve logar com email errado', () => {
+    cy.start()
+    cy.submitLogin('404@webdojo.com', 'katana123')
    
     cy.contains('Acesso negado! Tente novamente.').should('be.visible') 
   })
 })
+
+
  

@@ -8,5 +8,5 @@ module.exports = defineConfig({
   },
 });
 
-//rodar com npm run dev
+//rodar com npm run dev na pasta web
 // 
