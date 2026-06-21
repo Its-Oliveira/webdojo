@@ -1,7 +1,6 @@
 describe('iFrame', () => {
     it('Tocar vídeo de fundo', () => {
-        cy.start()
-        cy.submitLogin('papito@webdojo.com', 'katana123')
+        cy.login()
         cy.contains('Video').click()
 
         cy.get('iframe[title="Video Player"]') //resumo da função é que ele pega o conteúdo do body do iframe e transforma em elemento do cypress para usar os comandos

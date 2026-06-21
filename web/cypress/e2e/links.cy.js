@@ -1,17 +1,16 @@
 describe('Links abrindo nova guia/Janela', () => {
 
+    beforeEach(() => {
+        cy.login()
+    })
+
     it('validando o atributo do link do Instagram', () => {
-        cy.start()
-        cy.submitLogin('papito@webdojo.com', 'katana123')
         cy.get('[data-cy="instagram-link"]')
             .should('have.attr', 'href', 'https://www.instagram.com/qapapito')
             .and('have.attr', 'target', '_blank')
     })
 
-    it.only('Acessa link de termos de uso removendo target blank', () => {
-        cy.start()
-        cy.submitLogin('papito@webdojo.com', 'katana123')
-
+    it('Acessa link de termos de uso removendo target blank', () => {
         cy.contains('Formulários').click()
 
         cy.contains('a', 'termos de uso')

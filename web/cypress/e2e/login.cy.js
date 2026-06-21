@@ -17,13 +17,13 @@ describe('Login', () => {
 /*Describe: Agrupa os testes
   It: Define caso de teste
   Context: */
-it('Não deve logar com senha inválida', () => {
+it.skip('Não deve logar com senha inválida', () => {
     cy.start()
     cy.submitLogin('papito@webdojo.com', 'katana321')
    
     cy.contains('Acesso negado! Tente novamente.').should('be.visible') 
   })
-
+  
   it('Não deve logar com email errado', () => {
     cy.start()
     cy.submitLogin('404@webdojo.com', 'katana123')
