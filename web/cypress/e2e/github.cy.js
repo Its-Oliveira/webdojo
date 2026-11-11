@@ -56,7 +56,7 @@ describe('Gerencimento de Perfis no Github', () => {
             .should('not.exist')
     })
 
-    it.only('Deve validar o link do github', () => {
+    it('Deve validar o link do github', () => {
         
         const profile = {
             name: 'Fernando Papito',
